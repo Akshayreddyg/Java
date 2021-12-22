@@ -1,35 +1,53 @@
-public class EmployeeWageComputationProblem {
-
-     public static final int IS_PART_TIME =1;
-     public static final int IS_FULL_TIME = 2;
-     public static final int EMP_RATE_PER_HOUR = 20;
-     public static final int NO_OF_WORKING_DAYS = 2;
-     public static final int MAX_HRS_IN_MONTH = 10;
+pimport java.util.Random;
+public class EmployeeWageCalculation {
     public static void main(String[] args) {
-        int empHrs = 0;
-        int totalEmpWage = 0;
-        int eWage = 0;
-	int totalWorkingDays=0;
-	int totalEmpHrs = 0;
-        while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS) {
-	totalWorkingDays++ ;
-            double empcheck= Math.floor(Math.random() *10) % 3;
-            switch ((int)empcheck){
-                case IS_FULL_TIME:
-                        empHrs=8;
-                        break;
-                case IS_PART_TIME:
-                        empHrs=4;
-                        break;
-                default:
-                        empHrs=0;
+        System.out.println("Welcome to employee wage computation program on master branch ");
 
-            }
-	totalEmpHrs = totalEmpHrs +  empHrs
-        eWage = empHrs * EMP_RATE_PER_HOUR;
-        totalEmpwage += eWage;
-        System.out.println("Emp WAge: " + eWage);
+        //constants
+        final int isPresent = 0;
+        final int isAbsent = 1;
+        final int isFullTime = 2;
+        final int isPartTime =3;
+        final int perHourWage = 20;
+        final int fullTimeHour = 8;
+        final int partTimeHour = 4;
+        //Variables
+
+        int empWage = 0;
+        int workingHours = 0;
+
+        //Use Case 1
+        Random randomNumber = new Random();
+        int num = randomNumber.nextInt(4);
+        if (isPresent == num) {
+            System.out.println("Employee is present");
+        }
+        else if (isAbsent == num){
+            System.out.println("Employee is absent");
+        }
+        // Use Case 2
+        if (isPresent == num){
+            workingHours = 8;
+            empWage = workingHours * perHourWage;
+
+            System.out.println("Daily wage of the employee is : Rs " + empWage);
+        }
+        else if (isAbsent == num) {
+            System.out.println("Daily wage of the employee is Rs " + empWage);
+        }
+        // Use Case 3
+        if (isFullTime == num){
+            workingHours = 8;
+            empWage = workingHours * perHourWage;
+            System.out.println("Employee is working full time and his wage is Rs : " + empWage);
+
+        }
+        else if (isPartTime == num){
+            workingHours = 4;
+            empWage = workingHours * perHourWage;
+            System.out.println("Employee is working part time and his wage is Rs : " + empWage);
+
+        }
+  
     }
-        System.out.println("Total Employee Wage: " + totalEmpWage);
-}
 }
